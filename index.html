@@ -13,21 +13,56 @@
 			rel="icon"
 			href="./src/images/icon.png"
 		/>
-		<link rel="stylesheet" href="./src/styles/index.scss" />
 	</head>
 	<body>
 		<div class="todo">
 			<div class="todo__block">
 				<header class="todo__header">
-					<h1 class="todo__title"></h1>
-					<button class="todo__theme"></button>
+					<h1 class="todo__title">To Do</h1>
+					<button class="todo__theme" aria-label="Сменить тему">
+						Тема
+					</button>
 				</header>
 				<div class="todo__field">
-					<button class="todo__add"></button>
-					<div class="todo__entry"></div>
+					<button class="todo__add" aria-label="Добавить задачу">
+						+
+					</button>
+					<input
+						type="text"
+						class="todo__entry"
+						placeholder="Добавить задачу"
+					/>
 				</div>
-				<section class="todo__items"></section>
-				<footer class="todo__footer"></footer>
+				<section class="todo__items">
+					<ul class="todo__list" aria-live="polite">
+						<li class="todo__item">
+							<input
+								type="checkbox"
+								class="todo__item-check"
+								aria-label="Отметить задачу как выполненную"
+							/>
+							<p class="todo__item-text">Задача 228</p>
+							<button
+								class="todo__item-delete"
+								aria-label="Удалить задачу"
+							>
+								x
+							</button>
+						</li>
+					</ul>
+					<footer class="todo__items-footer">
+						<p class="todo__items-count" aria-live="polite">
+							1 задача
+						</p>
+						<div class="todo__items-status">
+							<button aria-pressed="true">Все</button>
+							<button>Активные</button>
+							<button>Выполненные</button>
+						</div>
+						<button class="todo__items-clear">Очистить</button>
+					</footer>
+				</section>
+				<footer class="todo__footer">Дерните что бы менять</footer>
 			</div>
 		</div>
 		<script type="module" src="./src/scripts/index.js"></script>
