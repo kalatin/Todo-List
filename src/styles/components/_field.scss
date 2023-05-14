@@ -1,0 +1,37 @@
+.todo {
+	&__field {
+		max-width: 100%;
+		display: flex;
+		align-items: center;
+		background: white;
+		padding: 10px 15px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 15px 0px rgba(34, 60, 80, 0.279);
+		column-gap: 10px;
+	}
+
+	&__add {
+		border-radius: 50%;
+		border: 1px solid rgb(211, 211, 211);
+		cursor: pointer;
+		background: #ffffff;
+		transition: background 0.3s, color 0.3s, border 0.3s;
+
+		&:hover {
+			background: #3e88ff;
+			color: white;
+			border: 1px solid rgb(159, 159, 159);
+		}
+	}
+
+	&__entry {
+		width: 100%;
+		border: none;
+		color: $text-color-white;
+		padding: 5px 0;
+		font-size: 18px;
+		&:focus {
+			outline: none;
+		}
+	}
+}

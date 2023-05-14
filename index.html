@@ -7,6 +7,16 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Todo List</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
 		<link
 			type="image/png"
 			sizes="96x96"
@@ -14,13 +24,16 @@
 			href="./src/images/icon.png"
 		/>
 	</head>
-	<body>
+	<body class="dark">
 		<div class="todo">
 			<div class="todo__block">
 				<header class="todo__header">
-					<h1 class="todo__title">To Do</h1>
+					<h1 class="todo__title">TODO</h1>
 					<button class="todo__theme" aria-label="Сменить тему">
-						Тема
+						<img
+							src="./src/images/icon-sun.svg"
+							alt="Светлая тема"
+						/>
 					</button>
 				</header>
 				<div class="todo__field">
@@ -36,17 +49,111 @@
 				<section class="todo__items">
 					<ul class="todo__list" aria-live="polite">
 						<li class="todo__item">
-							<input
-								type="checkbox"
-								class="todo__item-check"
-								aria-label="Отметить задачу как выполненную"
-							/>
-							<p class="todo__item-text">Задача 228</p>
+							<div class="todo__item-check">
+								<input
+									type="checkbox"
+									aria-label="Отметить задачу как выполненную"
+									id="item1"
+								/>
+								<label for="item1"></label>
+							</div>
+
+							<p class="todo__item-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Ut aliquam pariatur nesciunt atque quasi
+								corporis harum quam perferendis alias amet officia
+								magnam rerum, consequuntur quaerat beatae
+								cupiditate earum eveniet possimus dolores
+								exercitationem error veritatis aliquid. Sunt,
+								similique, quo explicabo, veritatis iste nulla modi
+								tempora reiciendis non omnis illum pariatur autem.
+								Exercitationem animi eos eius, obcaecati eligendi
+								ab error culpa vero nostrum cum officiis repellat
+								accusamus libero, maiores sed dolores corporis ex
+								nulla fugiat a optio porro ipsam. Dolorum
+								temporibus obcaecati cumque dicta fugit aspernatur
+								est iusto ut ea consequatur assumenda fuga, saepe
+								vitae laudantium placeat incidunt nobis sunt a
+								quod.
+							</p>
 							<button
 								class="todo__item-delete"
 								aria-label="Удалить задачу"
 							>
-								x
+								<span></span>
+								<span></span>
+							</button>
+						</li>
+						<li class="todo__item">
+							<div class="todo__item-check">
+								<input
+									type="checkbox"
+									aria-label="Отметить задачу как выполненную"
+									id="item1"
+								/>
+								<label for="item1"></label>
+							</div>
+
+							<p class="todo__item-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Ut aliquam pariatur nesciunt atque quasi
+								corporis harum quam perferendis alias amet officia
+								magnam rerum, consequuntur quaerat beatae
+								cupiditate earum eveniet possimus dolores
+								exercitationem error veritatis aliquid. Sunt,
+								similique, quo explicabo, veritatis iste nulla modi
+								tempora reiciendis non omnis illum pariatur autem.
+								Exercitationem animi eos eius, obcaecati eligendi
+								ab error culpa vero nostrum cum officiis repellat
+								accusamus libero, maiores sed dolores corporis ex
+								nulla fugiat a optio porro ipsam. Dolorum
+								temporibus obcaecati cumque dicta fugit aspernatur
+								est iusto ut ea consequatur assumenda fuga, saepe
+								vitae laudantium placeat incidunt nobis sunt a
+								quod.
+							</p>
+							<button
+								class="todo__item-delete"
+								aria-label="Удалить задачу"
+							>
+								<span></span>
+								<span></span>
+							</button>
+						</li>
+						<li class="todo__item">
+							<div class="todo__item-check">
+								<input
+									type="checkbox"
+									aria-label="Отметить задачу как выполненную"
+									id="item1"
+								/>
+								<label for="item1"></label>
+							</div>
+
+							<p class="todo__item-text">
+								Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Ut aliquam pariatur nesciunt atque quasi
+								corporis harum quam perferendis alias amet officia
+								magnam rerum, consequuntur quaerat beatae
+								cupiditate earum eveniet possimus dolores
+								exercitationem error veritatis aliquid. Sunt,
+								similique, quo explicabo, veritatis iste nulla modi
+								tempora reiciendis non omnis illum pariatur autem.
+								Exercitationem animi eos eius, obcaecati eligendi
+								ab error culpa vero nostrum cum officiis repellat
+								accusamus libero, maiores sed dolores corporis ex
+								nulla fugiat a optio porro ipsam. Dolorum
+								temporibus obcaecati cumque dicta fugit aspernatur
+								est iusto ut ea consequatur assumenda fuga, saepe
+								vitae laudantium placeat incidunt nobis sunt a
+								quod.
+							</p>
+							<button
+								class="todo__item-delete"
+								aria-label="Удалить задачу"
+							>
+								<span></span>
+								<span></span>
 							</button>
 						</li>
 					</ul>
@@ -55,11 +162,13 @@
 							1 задача
 						</p>
 						<div class="todo__items-status">
-							<button aria-pressed="true">Все</button>
+							<button aria-pressed="true" class="selected">
+								Все
+							</button>
 							<button>Активные</button>
 							<button>Выполненные</button>
 						</div>
-						<button class="todo__items-clear">Очистить</button>
+						<button class="todo__items-clear">Очистить всё</button>
 					</footer>
 				</section>
 				<footer class="todo__footer">Дерните что бы менять</footer>
