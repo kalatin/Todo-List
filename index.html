@@ -7,9 +7,29 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Todo List</title>
+		<link
+			type="image/png"
+			sizes="96x96"
+			rel="icon"
+			href="./src/images/icon.png"
+		/>
 		<link rel="stylesheet" href="./src/styles/index.scss" />
 	</head>
 	<body>
+		<div class="todo">
+			<div class="todo__block">
+				<header class="todo__header">
+					<h1 class="todo__title"></h1>
+					<button class="todo__theme"></button>
+				</header>
+				<div class="todo__field">
+					<button class="todo__add"></button>
+					<div class="todo__entry"></div>
+				</div>
+				<section class="todo__items"></section>
+				<footer class="todo__footer"></footer>
+			</div>
+		</div>
 		<script type="module" src="./src/scripts/index.js"></script>
 	</body>
 </html>
