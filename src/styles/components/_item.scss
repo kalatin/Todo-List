@@ -111,9 +111,6 @@
 }
 
 .todo__item.checked {
-	&:first-child {
-		border-top: 3px solid gray;
-	}
 	.todo__item-text {
 		color: #aaaaaa;
 	}

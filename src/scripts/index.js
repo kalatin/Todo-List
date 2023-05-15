@@ -1,5 +1,6 @@
 import 'normalize.css';
 import './../styles/index.scss';
+import morph from './declination';
 
 // Смена темы
 document.querySelector('.todo__theme').addEventListener('click', e => {
@@ -57,16 +58,20 @@ function addItem(text) {
 		</li>
 		`
 	);
+	Array.from(checkedElem).forEach(item => {
+		item.style.borderTop = '1px solid red';
+	});
 	input.value = '';
+	setState();
 }
 
 // Удаление ячейки
 list.addEventListener('click', e => {
 	if (e.target.closest('.todo__item-delete')) {
 		e.target.closest('.todo__item').remove();
-	} else if (
-		e.target.matches('.todo__item-check input[type="checkbox"]')
-	) {
+		setState();
+	} // Чекнутость
+	else if (e.target.matches('.todo__item-check input[type="checkbox"]')) {
 		const todoItem = e.target.closest('.todo__item');
 		e.stopPropagation();
 		if (!todoItem.classList.contains('checked')) {
@@ -87,5 +92,32 @@ document
 	.addEventListener('click', e => {
 		list.querySelectorAll('.todo__item').forEach(item => {
 			item.remove();
+			setState();
 		});
 	});
+
+// Загрузка
+document.addEventListener('DOMContentLoaded', () => {
+	if (checkedElem.length > 0) {
+		Array.from(checkedElem).forEach(item => {
+			item.querySelector('.todo__item-check > input').checked = true;
+		});
+	}
+});
+
+// Статус
+setState();
+function setState() {
+	let countElem = document.querySelector('.todo__items-count');
+	if (list.children.length === 0) {
+		countElem.textContent = 'Пусто';
+		document.querySelector('.todo__items-footer').classList.add('empty');
+	} else if (list.children.length >= 1) {
+		document
+			.querySelector('.todo__items-footer')
+			.classList.remove('empty');
+		countElem.textContent = `${list.childElementCount} ${morph(
+			list.childElementCount
+		)}`;
+	}
+}
