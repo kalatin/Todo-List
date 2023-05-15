@@ -21,13 +21,16 @@ document.querySelector('.todo__theme').addEventListener('click', e => {
 });
 
 function changeTheme(how) {
+	const { BASE_URL } = import.meta.env;
 	if (how === 'dark') {
-		document.querySelector('.todo__theme > img').src =
-			'./src/images/icon-sun.svg';
+		document.querySelector(
+			'.todo__theme > img'
+		).src = `${BASE_URL}icon-sun.svg`;
 		document.body.classList.add('dark');
 	} else if (how === 'light') {
-		document.querySelector('.todo__theme > img').src =
-			'./src/images/icon-moon.svg';
+		document.querySelector(
+			'.todo__theme > img'
+		).src = `${BASE_URL}icon-moon.svg`;
 		document.body.classList.remove('dark');
 	}
 }
