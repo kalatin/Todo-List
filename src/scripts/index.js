@@ -18,6 +18,7 @@ const input = document.querySelector('.todo__field > .todo__entry');
 const addButton = document.querySelector('.todo__add');
 const list = document.querySelector('.todo__list');
 let checkedElem = document.getElementsByClassName('checked');
+let howShow = 'all';
 
 // Добавление ячейки
 input.addEventListener('keydown', e => {
@@ -58,11 +59,9 @@ function addItem(text) {
 		</li>
 		`
 	);
-	Array.from(checkedElem).forEach(item => {
-		item.style.borderTop = '1px solid red';
-	});
 	input.value = '';
 	setState();
+	showItems(howShow);
 }
 
 // Удаление ячейки
@@ -84,16 +83,19 @@ list.addEventListener('click', e => {
 			todoItem.style.order = '';
 		}
 		todoItem.classList.toggle('checked');
+		showItems(howShow);
 	}
 });
 
 document
 	.querySelector('.todo__items-clear')
-	.addEventListener('click', e => {
+	.addEventListener('click', () => {
 		list.querySelectorAll('.todo__item').forEach(item => {
 			item.remove();
 			setState();
 		});
+		howShow = 'all';
+		showItems('all');
 	});
 
 // Загрузка
@@ -119,5 +121,62 @@ function setState() {
 		countElem.textContent = `${list.childElementCount} ${morph(
 			list.childElementCount
 		)}`;
+	}
+}
+
+// Отображение
+document
+	.querySelector('.todo__items-status')
+	.addEventListener('click', e => {
+		if (e.target.closest('.all')) {
+			showItems('all');
+			howShow = 'all';
+		} else if (e.target.closest('.active')) {
+			showItems('active');
+			howShow = 'active';
+		} else if (e.target.closest('.completed')) {
+			showItems('completed');
+			howShow = 'completed';
+		}
+	});
+
+function showItems(how = 'all') {
+	const items = document.querySelectorAll('.todo__item');
+	if (how === 'all') {
+		document
+			.querySelectorAll('.todo__items-status button')
+			.forEach(item => item.classList.remove('selected'));
+		document.querySelector(`.${how}`).classList.add('selected');
+		items.forEach(item => {
+			if (item.classList.contains('checked')) {
+				item.style.display = 'flex';
+			} else {
+				item.style.display = 'flex';
+			}
+		});
+	} else if (how === 'active') {
+		document
+			.querySelectorAll('.todo__items-status button')
+			.forEach(item => item.classList.remove('selected'));
+		document.querySelector(`.${how}`).classList.add('selected');
+		items.forEach(item => {
+			if (item.classList.contains('checked')) {
+				item.style.display = 'none';
+			} else {
+				item.style.display = 'flex';
+			}
+		});
+	} else if (how === 'completed') {
+		document
+			.querySelectorAll('.todo__items-status button')
+			.forEach(item => item.classList.remove('selected'));
+		document.querySelector(`.${how}`).classList.add('selected');
+		items.forEach(item => {
+			if (item.classList.contains('checked')) {
+				item.style.display = 'flex';
+			} else {
+				item.style.display = 'none';
+			}
+		});
 	}
 }
