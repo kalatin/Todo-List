@@ -15,11 +15,7 @@
 		border: 1px solid rgb(211, 211, 211);
 		cursor: pointer;
 		background: #ffffff;
-		transition: background 0.3s, color 0.3s, border 0.3s;
-
 		&:hover {
-			background: #3e88ff;
-			color: white;
 			border: 1px solid rgb(159, 159, 159);
 		}
 	}

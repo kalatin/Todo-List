@@ -60,6 +60,8 @@ body {
 	}
 
 	&__list {
+		display: flex;
+		flex-direction: column;
 		list-style: none;
 		margin: 25px 0 0 0;
 		padding: 0;
@@ -152,9 +154,6 @@ body.dark {
 		&__add {
 			background: $dark-theme;
 			color: $text-color-dark;
-			&:hover {
-				background: #9d45f0;
-			}
 		}
 
 		&__entry {

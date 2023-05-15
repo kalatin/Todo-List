@@ -1,5 +1,6 @@
 .todo {
 	&__item {
+		position: relative;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -8,6 +9,10 @@
 		&:hover {
 			.todo__item-delete {
 				opacity: 1;
+			}
+			.todo__item-drag {
+				opacity: 1;
+				visibility: visible;
 			}
 		}
 	}
@@ -42,15 +47,15 @@
 			border: 1px solid rgb(157, 157, 157);
 		}
 		input:checked + label {
-			border: 1px solid #312f42e2;
+			border: 1px solid #c1c1c1e2;
 			position: relative;
 			&::before {
 				content: '';
 				display: block;
 				width: 10px;
 				height: 5px;
-				border-right: 2px solid $text-color-white;
-				border-top: 2px solid $text-color-white;
+				border-right: 2px solid #c1c1c1e2;
+				border-top: 2px solid #c1c1c1e2;
 				transform: rotate(135deg);
 			}
 		}
@@ -90,5 +95,26 @@
 		span:nth-child(2) {
 			transform: rotate(-45deg);
 		}
+	}
+}
+
+@media (width < 768px) {
+	.todo {
+		&__item-drag {
+			left: -17px;
+			padding-right: 17px;
+		}
+		&__item-text {
+			font-size: 17px;
+		}
+	}
+}
+
+.todo__item.checked {
+	&:first-child {
+		border-top: 3px solid gray;
+	}
+	.todo__item-text {
+		color: #aaaaaa;
 	}
 }
